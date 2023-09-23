@@ -280,6 +280,9 @@ def show_engineers_admin():
 @app.route("/show_engineers_pm")
 def show_engineers_pm():
     return render_template("show_engineers_pm.html")
+@app.route("/edit_status_pm")
+def edit_status_pm():
+    return render_template("edit_status_pm.html")
 @app.route("/create-project", methods=["POST"])
 def createproject():
      if request.method== "POST":

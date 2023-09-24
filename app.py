@@ -108,7 +108,11 @@ def statisticsengineer():
      return render_template("statistics-en.html")
 @app.route("/admin-dash")
 def dashadmin():
-     return render_template("dashadmin.html")
+     cursor = mysql.connection.cursor()
+     query=cursor.execute("SELECT projet.id_projet ,projet.nom_projet , chef_projet.username , projet.status FROM projet JOIN chef_projet ON chef_projet.id_chef_prj=projet.id_chef_trg")
+     project=cursor.fetchall()
+     return render_template("dashadmin.html",projects=project)
+     # return jsonify(project)
 @app.route("/create-ing")
 def createing():
      return render_template("create-ing.html")

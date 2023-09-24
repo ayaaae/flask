@@ -166,7 +166,7 @@
                                     <a href="/admin-statistics">
                                         <span class="pcoded-micon" style="background-color: #FFB64D;;"><i class="fa-solid fa-chart-pie"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Statistics</span>
-                                        <span class="pcoded-mcaret"></span>
+                                        <span class="pcoded-mcaret"></span></a>
                                 </li>
                               
                                 
@@ -251,35 +251,21 @@
                                                   <table class="table table-hover">
                                                     <thead>
                                                         <tr>
-                                                            <th>Projects</th>
-                                                            <th>Propject Manger</th>
-                                                            <th>Engineers</th>
+                                                            <th>Id project</th>
+                                                            <th>Project name</th>
+                                                            <th>Project Manager</th>
                                                             <th>Status</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            {%for i in session["all_projects"]%}
-                                                            <tr>
-                                                                <td>{{i[1]}}</td>
-                                                            </tr>
-                                                            {% endfor %}  
-                                                        </tr>
-
-                                                        <tr>
-                                                            {%for i in session["all_pmanagers"]%}
-                                                            <tr>
-                                                                <td>{{i[1]}}</td>
-                                                            </tr>
-                                                            {% endfor %}  
-                                                        </tr>
-                                                        <tr>
-                                                            {%for i in session["all_engineers"]%}
-                                                            <tr>
-                                                                <td>{{i[1]}}</td>
-                                                            </tr>
-                                                            {% endfor %}  
-                                                        </tr>
+                                                {% for i in projects %}
+                                                      <tr>
+                                                    <td>{{ i[0] }}</td>
+                                                    <td>{{ i[1] }}</td>
+                                                    <td>{{ i[2] }}</td>
+                                                    <td>{{ i[3] }}</td>
+                                                </tr>
+                                                    {% endfor %}
                                                     </tbody>
                                                   </table>         
                                             </div>   
